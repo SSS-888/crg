@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chernobyl Research Group</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .centered-content {
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            position: relative;
+        }
+
+        .centered-content .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: black;
+            padding: 0;
+            list-style: none;
+            border: 1px solid white;
+        }
+
+        .menu li {
+            padding: 10px 20px;
+            color: white;
+            text-align: left;
+        }
+
+        .menu li:hover {
+            background-color: red;
+            cursor: pointer;
+        }
+
+        .centered-content .toggle {
+            color: white;
+            font-size: 32px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .centered-content .toggle:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="centered-content">
+        Chernobyl Research Group <span class="toggle"> v </span>
+        <ul class="menu">
+            <li>Reports</li>
+            <li>Services</li>
+            <li>Contact Us</li>
+            <li>About Us</li>
+        </ul>
+    </div>
+
+    <script>
+        const toggle = document.querySelector('.toggle');
+        const menu = document.querySelector('.menu');
+
+        toggle.addEventListener('mouseover', () => {
+            toggle.style.color = 'red';
+            menu.style.display = 'block';
+        });
+
+        toggle.addEventListener('mouseout', () => {
+            toggle.style.color = 'white';
+        });
+
+        menu.addEventListener('mouseover', () => {
+            toggle.style.color = 'red';
+        });
+
+        menu.addEventListener('mouseout', () => {
+            toggle.style.color = 'white';
+            menu.style.display = 'none';
+        });
+
+        menu.addEventListener('click', (e) => {
+            if (e.target.tagName === 'LI') {
+                alert(`${e.target.textContent} page clicked!`); // Change this to actual page navigation.
+            }
+        });
+    </script>
+
+</body>
+</html>
